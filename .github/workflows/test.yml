@@ -1,0 +1,16 @@
+name: C# Test
+
+on:
+  push:
+    - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Install .NET
+      run: dotnet tool install -g dotnet --version 6.0.300
+    - name: Run tests
+      run: dotnet test
